@@ -1,0 +1,27 @@
+api: 1.13.0
+name: PingChat
+version: 1.0.0
+author: Betong
+main: me._betong.broadcast.main
+commands:
+  ping:
+    description: Ping players!
+    aliases:
+    - ping
+    permission: player.ping
+    permission-message: You do not have permission to execute this command!
+    usage: /ping <player>
+  pingreload:
+    description: Reloads pingchat config!
+    aliases:
+    - reload
+    permission: pingchat.reload
+    permission-message: You do not have permission to execute this command!
+    usage: /pingreload
+permissions:
+  pingchat.player.ping:
+    description: Ping players!
+    default: op
+  pingchat.reload:
+    description: Reloads pingchat config
+    default: op
