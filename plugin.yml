@@ -8,7 +8,7 @@ commands:
     description: Ping players!
     aliases:
     - ping
-    permission: player.ping
+    permission: pingchat.player.ping
     permission-message: You do not have permission to execute this command!
     usage: /ping <player>
   pingreload:
