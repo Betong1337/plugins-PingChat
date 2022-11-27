@@ -1,45 +1,72 @@
 
 # ALL SOUNDS AVAILABLE: https://helpch.at/docs/1.12.2/org/bukkit/Sound.html
 # ALL COLORS AVAILABLE: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html
-#AUTHOR: Betong
-#WHEN CHANGING COLORS OR SOUND ONLY USE UPPERCASE
+# AUTHOR: Betong
+# WHEN CHANGING COLORS OR SOUND ONLY USE UPPERCASE
 
-#IF YOU GET ERROR MESSAGE PingChatERROR402 REMOVE config.yml AND restart server!
+# IF YOU GET ERROR MESSAGE PingChatERROR402 REMOVE config.yml AND restart server!
 
-#Sound when someone pings you
+# Sound when someone pings you
+
 # DO NOT USE "Sound".BLOCK_NOTE_BLOCK_PLING ONLY USE BLOCK_NOTE_BLOCK_PLING
 sound: BLOCK_NOTE_PLING
 
-#Ping yourself true / false
+# Ping yourself true / false
 ping_yourself: false
 
-#prefix on true / false
+# Prefix section STARTS -----------------------------------------------------------------------
+
+# Prefix on true / false
 prefix: true
 
-#prefix text change it to whatever you like
+# Prefix text change it to whatever you like
 prefix_text: PingChat
 
-#prefix color:
+# Prefix color
 prefix_color: AQUA
+# Prefix section ENDS -------------------------------------------------------------------------
 
-#Color of the username being pinged!
+# Target message section STARTS
+
+# Color of the username being pinged!
 username_color: GREEN
 
-#Ping text change it to whatever you like
+# Ping text change it to whatever you like
 ping_text: Wants your attention!
 
-#Ping text color
-ping_text_color: WHITE
+# Ping text color
+ping_text_color: YELLOW
 
-#Broadcast the ping to the public
+# Target message section ENDS -----------------------------------------------------------------
+
+# You pinged section STARTS
+
+# You pinged message color
+you_pinged_color: YELLOW
+
+# You pinged message text
+you_pinged_text: You pinged
+
+# You pinged username color
+you_pinged_username_color: GREEN
+
+# You pinged section ENDS ---------------------------------------------------------------------
+
+# Broadcast section STARTS
+
+# Broadcast the ping to the public
 broadcast_ping: false
 
-#ONLY CHANGE THIS IF broadcast_ping = true ---------------------------
+# ONLY CHANGE THIS IF broadcast_ping = true
 broadcast_text: Just got pinged by
 
-#Broadcast text color
-broadcast_text_color: WHITE
-
+# Sender username color
 sender_username_color: GREEN
+
+# Broadcast text color
+broadcast_text_color: YELLOW
+
+# Broadcast section ENDS ----------------------------------------------------------------------
+
 
 
