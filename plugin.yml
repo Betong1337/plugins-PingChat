@@ -1,6 +1,6 @@
 api: 1.13.0
 name: PingChat
-version: 1.0.0
+version: 1.1.0
 author: Betong
 main: me._betong.broadcast.main
 commands:
