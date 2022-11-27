@@ -41,11 +41,9 @@ public class PingCMD implements CommandExecutor {
 			return true;
 		}
 		try {
-		if (plugin.getConfig().getBoolean("ping_yourself") == false) {
-		if (p.getName() == target.getName()) {
-			p.sendMessage(ChatColor.RED + " You can not ping yourself!");
+		if (plugin.getConfig().getBoolean("ping_yourself") == false && p.getName() == target.getName()) {
+			p.sendMessage(ChatColor.RED + "You can not ping yourself!");
 			return true;
-		}
 		}
 		} catch(Exception e) {
 			p.sendMessage(ChatColor.DARK_RED + "Something is wrong with the config! Inform Owner/Admin");
@@ -60,16 +58,20 @@ public class PingCMD implements CommandExecutor {
 			ChatColor sender_username_color = ChatColor.valueOf(plugin.getConfig().getString("sender_username_color").toUpperCase());
 			ChatColor prefix_color = ChatColor.valueOf(plugin.getConfig().getString("prefix_color").toUpperCase());
 			ChatColor ping_text_color = ChatColor.valueOf(plugin.getConfig().getString("ping_text_color").toUpperCase());
+			ChatColor you_pinged_color = ChatColor.valueOf(plugin.getConfig().getString("you_pinged_color").toUpperCase());
+			ChatColor you_pinged_username_color = ChatColor.valueOf(plugin.getConfig().getString("you_pinged_username_color"));
 			
 			String prefix_text = plugin.getConfig().getString("prefix_text");
 			String broadcast_text = plugin.getConfig().getString("broadcast_text");
 			String ping_text = plugin.getConfig().getString("ping_text");
+			String you_pinged_text = plugin.getConfig().getString("you_pinged_text");
 			
 			boolean prefix_bool = plugin.getConfig().getBoolean("prefix");
 			boolean broadcast_bool = plugin.getConfig().getBoolean("broadcast_ping");
 			
 			String prefix = prefix_color + "[" + prefix_text + "] ";
 			String ping_msg = username_color + "@" + p.getName() + ping_text_color + " " + ping_text;
+			String you_pinged_msg = you_pinged_color + you_pinged_text + " " + "@" + you_pinged_username_color + target.getName();
 			
 			String sound = plugin.getConfig().getString("sound").toUpperCase();
 			target.playSound(target.getLocation(), Sound.valueOf(sound), 1f, 1f);
@@ -80,12 +82,14 @@ public class PingCMD implements CommandExecutor {
 					Bukkit.broadcastMessage(prefix + public_msg);
 				}
 				target.sendMessage(prefix + ping_msg);
-			} else {
-				if (broadcast_bool == true) {
-					Bukkit.broadcastMessage(public_msg);
-				}
-				target.sendMessage(ping_msg);
+				p.sendMessage(you_pinged_msg);
+				return true;
 			}
+			if (broadcast_bool == true) {
+				Bukkit.broadcastMessage(public_msg);
+			}
+				target.sendMessage(ping_msg);
+				p.sendMessage(you_pinged_msg);
 		} catch(Exception e) {
 			p.sendMessage(ChatColor.DARK_RED + "Something is wrong with the config! Inform Owner/Admin");
 			Bukkit.broadcastMessage(ChatColor.RED + "[PingChatERROR402]: " + ChatColor.DARK_RED + "Something is wrong with the config! Inform Owner/Admin");
